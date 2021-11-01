@@ -1,5 +1,10 @@
 const request = require("request");
 
+/**
+ * http://api.weatherstack.com/current?access_key=fd4ec39587124a3f8ef8c57ce5ca293c&query=Hanoi&units=m
+ * http://api.weatherstack.com/current?access_key=fd4ec39587124a3f8ef8c57ce5ca293c&query=21.033,105.850&units=m
+ */
+
 const forecast = (latitude, longitude, callback) => {
     const url_weather =
         "http://api.weatherstack.com/current?access_key=fd4ec39587124a3f8ef8c57ce5ca293c&query=" +
@@ -18,9 +23,15 @@ const forecast = (latitude, longitude, callback) => {
                 body.current.weather_descriptions +
                 ". It is currently " +
                 body.current.temperature +
-                " degress out. There is a " +
-                body.current.precip +
-                "% chance of rain.";
+                " degress out. It feels like " +
+                body.current.feelslike +
+                " degress out.\n" +
+                " The humidity is " +
+                body.current.humidity +
+                "%." +
+                " The cloud cover is " +
+                body.current.cloudcover +
+                "%.";
             callback(undefined, message);
         }
     });
