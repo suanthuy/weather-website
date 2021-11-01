@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node src/app.js",
-        "nodemon": "nodemon src/app.js -e hbs,js",
+        "dev": "nodemon src/app.js -e hbs,js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "xuanthuy",
@@ -13,7 +13,9 @@
     "dependencies": {
         "express": "^4.17.1",
         "hbs": "^4.1.2",
-        "nodemon": "^2.0.14",
         "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.14"
     }
 }
